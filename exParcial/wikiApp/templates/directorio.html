@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Directorio
+{% endblock %}
+
+block contenido %}
+    {% for teaminfo in listaArticulo %}
+        <div>
+            <a href="{% url 'wikiApp:vistaDetalleArticulo' teaminfo.id %}">{{ teaminfo.tituloArticulo }}</a>            
+        </div>
+    {% endfor %}
+{% endblock %}

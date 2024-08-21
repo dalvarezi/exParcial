@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Nuevo Articulo
+{% endblock %}
+
+
+{% block contenido %}
+    <h2>Crear nuevo Articulo</h2>
+    <form class="row" method="post" action="{% url 'wikiApp:nuevoArticulo' %}" >
+        {% csrf_token %}
+        <div>
+            <label>Titulo</label>
+            <input type="text" name="tituloArticulo">
+        </div>           
+        <div class="input-group">
+            <label>Tema</label>
+            <select class="custom-select" name="nombreTema" required>
+                {% for teaminfo in listaTema %}
+                    <option value="{{ teaminfo.id }}">{{ teaminfo.tituloTema }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div>
+            <label>Contenido del articulo</label>
+            <textarea class="form-control" name="contenidoArticulo"></textarea>
+        </div>
+        <div>
+            <input type="submit" class="btb btn-success" value="Enviar">
+        </div>
+    </form>
+{% endblock %}
